@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hvasylie <hvasylie@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hvasylie <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/23 12:59:32 by hvasylie          #+#    #+#             */
-/*   Updated: 2019/06/14 17:43:05 by hvasylie         ###   ########.fr       */
+/*   Created: 2019/07/01 23:03:16 by hvasylie          #+#    #+#             */
+/*   Updated: 2019/07/01 23:03:21 by hvasylie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,12 +42,12 @@ int	get_next_line(const int fd, char **line)
 	static char	*str[FD_MAX];
 	char		*tmp;
 
-	if (fd < 0 || read(fd, buf, 0) < 0 ||
+	if (fd < 0 || read(fd, buf, 0) < 0 || \
 	!line || fd > FD_MAX || BUFF_SIZE <= 0)
 		return (-1);
 	if (str[fd] == NULL)
 		str[fd] = ft_strnew(1);
-	while ((size_fd = read(fd, buf, BUFF_SIZE) > 0))
+	while ((size_fd = read(fd, buf, BUFF_SIZE)) > 0)
 	{
 		buf[size_fd] = '\0';
 		tmp = ft_strjoin(str[fd], buf);
